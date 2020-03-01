@@ -1,0 +1,227 @@
+### get all bootcamps
+GET http://localhost:5000/api/v1/bootcamps?page=1&limit=10
+
+### get a bootcamp
+GET http://localhost:5000/api/v1/bootcamps/5d713995b721c3bb38c1f5d0
+
+### add a photo to a bootcamp
+PUT http://localhost:5000/api/v1/bootcamps/5d725a1b7b292f5f8ceff788/photo
+
+### get a bootcamp with courses
+GET http://localhost:5000/api/v1/bootcamps/5d725a1b7b292f5f8ceff788/courses
+
+### add a course
+POST http://localhost:5000/api/v1/bootcamps/5e592403e63a8828c405fe04/courses
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkN2E1MTRiNWQyYzEyYzc0NDliZTA0MiIsImlhdCI6MTU4MjkwMDQyOSwiZXhwIjoxNTg1NDkyNDI5fQ.ygBfqLF_ZIQISECkN_WkUWNoeE5NzcxxWmxoHvjwijg
+
+{
+    "title": "Full Stack Web Development2",
+    "description": "This course will teach you how to build high quality web applications with technologies like React, Node.js, PHP & Laravel",
+    "weeks": "12",
+    "tuition": 12000,
+    "minimumSkill": "intermediate"
+}
+
+### add new bootcamp
+POST http://localhost:5000/api/v1/bootcamps
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNWMwMzJmMWY5NWM2MTJlNGY2ODQ5YSIsImlhdCI6MTU4MzA4ODUwOSwiZXhwIjoxNTg1NjgwNTA5fQ.B1MANoS4NBatDcXIct-y3cMlFNn5VkKPPjyisIh9pjg
+
+{
+        "name": "ModerTech Bootcamp2",
+        "description": "Devworks is a full stack JavaScript Bootcamp located in the heart of Boston that focuses on the technologies you need to get a high paying job as a web developer",
+        "website": "https://devworks.com",
+        "phone": "(111) 111-1111",
+        "email": "enroll@devworks.com",
+        "address": "233 Bay State Rd Boston MA 02215",
+        "careers": ["Web Development", "UI/UX", "Business"],
+        "housing": true,
+        "jobAssistance": true,
+        "jobGuarantee": false,
+        "acceptGi": true
+}
+
+### update bootcamp
+PUT http://localhost:5000/api/v1/bootcamps/5e592183305a943008110e4f
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkN2E1MTRiNWQyYzEyYzc0NDliZTA0MyIsImlhdCI6MTU4Mjg5OTQxMywiZXhwIjoxNTg1NDkxNDEzfQ.t4qRWKU_FAha0IhDDIyX0suGHWAfPfKJkVE1FNJ7ST4
+
+{
+        "jobAssistance": false
+}
+
+### delete bootcamp
+DELETE http://localhost:5000/api/v1/bootcamps/5e592183305a943008110e4f
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNTkxODA2M2Y2ZmNhMDU0NGNiMDViOSIsImlhdCI6MTU4Mjg5OTQ5MSwiZXhwIjoxNTg1NDkxNDkxfQ.VCtrkS-UYxAzsQ2ttf5yO3_IFGp-lK634dL-oksRdSQ
+
+### get bootcamps in radius
+GET http://localhost:5000/api/v1/bootcamps/radius/02118/10
+
+### get bootcamps by query
+GET http://localhost:5000/api/v1/bootcamps?select=name
+
+### get all courses
+GET http://localhost:5000/api/v1/courses?page=2&limit=2
+
+### get course by id
+GET http://localhost:5000/api/v1/courses/5d725a4a7b292f5f8ceff789
+
+### update course
+PUT http://localhost:5000/api/v1/courses/5d725a4a7b292f5f8ceff789
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNTkxODA2M2Y2ZmNhMDU0NGNiMDViOSIsImlhdCI6MTU4Mjg5Nzk4OSwiZXhwIjoxNTg1NDg5OTg5fQ.QC_cT8Xv8WdkbzxgsQWwCMjroWhhDJ2O9et1BLuWC88
+
+{
+    "housing":false
+}
+
+### delete course by id
+DELETE http://localhost:5000/api/v1/courses/5e57c68163bf66206c0b55ef
+
+### delete course by id
+POST http://localhost:5000/api/v1/bootcamps/5d725a1b7b292f5f8ceff788/courses
+Content-Type: application/json
+
+{
+        "title": "Full Stack Web Development",
+        "description": "This course will teach you how to build high quality web applications with technologies like React, Node.js, PHP & Laravel",
+        "weeks": 12,
+        "tuition": 10000,
+        "minimumSkill": "intermediate",
+        "scholarhipsAvailable": true
+}
+
+### AUTHENTICATION
+### register user
+POST http://localhost:5000/api/v1/auth/register
+Content-Type: application/json
+
+{
+    "name":"Angela Moss",
+    "email":"angelamoss@hotmail.com",
+    "password":"123456"
+}
+
+### login user
+POST http://localhost:5000/api/v1/auth/login
+Content-Type: application/json
+
+{
+    "email":{"$gt":""},
+    "password":"123456"
+}
+
+### logout user
+GET http://localhost:5000/api/v1/auth/logout
+
+### get current user
+GET http://localhost:5000/api/v1/auth/me
+
+### get forgotten password
+POST http://localhost:5000/api/v1/auth/forgotpassword
+Content-Type: application/json
+
+{
+    "email":"john@gmail.com"
+}
+
+### reset password
+PUT http://localhost:5000/api/v1/auth/resetpassword/d9347dccf78b0b3cfa5579a71ed6c575646dfd56
+Content-Type: application/json
+
+{
+    "password":"123456"
+}
+
+### update user details
+PUT http://localhost:5000/api/v1/auth/updatedetails
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkN2E1MTRiNWQyYzEyYzc0NDliZTA0NSIsImlhdCI6MTU4MjkxMzk5MCwiZXhwIjoxNTg1NTA1OTkwfQ.1AvqR9z1wk0MyNQAFMn1ueBovChdoJr3qZG9Lfb8FJI
+
+{
+    "email":"john@gmail.com",
+    "password":"123456"
+}
+
+
+### update user details
+PUT http://localhost:5000/api/v1/auth/updatepassword
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkN2E1MTRiNWQyYzEyYzc0NDliZTA0NSIsImlhdCI6MTU4MjkxMzk5MCwiZXhwIjoxNTg1NTA1OTkwfQ.1AvqR9z1wk0MyNQAFMn1ueBovChdoJr3qZG9Lfb8FJI
+
+{
+    "currentPassword":"654321",
+    "newPassword":"123456"
+}
+
+### USERS
+### get users
+GET http://localhost:5000/api/v1/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkN2E1MTRiNWQyYzEyYzc0NDliZTA0MiIsImlhdCI6MTU4Mjk2NTkwOSwiZXhwIjoxNTg1NTU3OTA5fQ.TlcLXnrXrgR2K9-647gLnnv91RBLd5Mgs5AaMdyjkQY
+
+### get user
+GET http://localhost:5000/api/v1/users/5c8a1d5b0190b214360dc040
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkN2E1MTRiNWQyYzEyYzc0NDliZTA0MiIsImlhdCI6MTU4Mjk2NTkwOSwiZXhwIjoxNTg1NTU3OTA5fQ.TlcLXnrXrgR2K9-647gLnnv91RBLd5Mgs5AaMdyjkQY
+
+### create user
+POST http://localhost:5000/api/v1/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkN2E1MTRiNWQyYzEyYzc0NDliZTA0MiIsImlhdCI6MTU4Mjk2NTkwOSwiZXhwIjoxNTg1NTU3OTA5fQ.TlcLXnrXrgR2K9-647gLnnv91RBLd5Mgs5AaMdyjkQY
+
+{
+    "name":"Dougie Hawes",
+    "email":"dougiehawes@hotmail.com",
+    "password":"123456",
+}
+
+### create user
+PUT http://localhost:5000/api/v1/users/5e5a2563034e86190857a683
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkN2E1MTRiNWQyYzEyYzc0NDliZTA0MiIsImlhdCI6MTU4Mjk2NTkwOSwiZXhwIjoxNTg1NTU3OTA5fQ.TlcLXnrXrgR2K9-647gLnnv91RBLd5Mgs5AaMdyjkQY
+
+{
+    "name":"Dougie Hawes",
+    "email":"dougiehawes@hotmail.com",
+    "password":"123456"
+}
+
+### delete user
+DELETE http://localhost:5000/api/v1/users/5e5a2563034e86190857a683
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkN2E1MTRiNWQyYzEyYzc0NDliZTA0MiIsImlhdCI6MTU4Mjk2NTkwOSwiZXhwIjoxNTg1NTU3OTA5fQ.TlcLXnrXrgR2K9-647gLnnv91RBLd5Mgs5AaMdyjkQY
+
+### Reviews
+### get reviews
+GET http://localhost:5000/api/v1/reviews
+
+### get all reviews for a bootcamp
+GET http://localhost:5000/api/v1/bootcamps/5e5c03951f95c612e4f6849d/reviews
+
+### get a review
+GET http://localhost:5000/api/v1/reviews/5e5c04b6830221112c6d1bfe
+
+### create a review
+PUT http://localhost:5000/api/v1/reviews/5e5c054f830221112c6d1c00
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNWMwNTM0ODMwMjIxMTEyYzZkMWJmZiIsImlhdCI6MTU4MzA4ODk0OCwiZXhwIjoxNTg1NjgwOTQ4fQ.H7Ph4UYVmi8ZZnF4jXTgLR61wgShXnChKV72TTnY9RY
+
+{
+    "title":"great bootcamp",
+    "text":"I learned loads",
+    "rating":10
+}
+
+### update a review
+PUT http://localhost:5000/api/v1/reviews/5e5c04b6830221112c6d1bfe
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNWMwMzU1MWY5NWM2MTJlNGY2ODQ5YyIsImlhdCI6MTU4MzA4OTc3NSwiZXhwIjoxNTg1NjgxNzc1fQ.TzAxChUul21-dS1diVD8BrbnAxlK6A5cObPWY3rCZ4U
+
+{
+    "title":"Great bootcamp",
+    "text":"I learned loads, could have been more detailed",
+    "rating":9
+}
+
+### update a review
+DELETE  http://localhost:5000/api/v1/reviews/5e5c04b6830221112c6d1bfe
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlNWMwMzU1MWY5NWM2MTJlNGY2ODQ5YyIsImlhdCI6MTU4MzA4OTc3NSwiZXhwIjoxNTg1NjgxNzc1fQ.TzAxChUul21-dS1diVD8BrbnAxlK6A5cObPWY3rCZ4U
